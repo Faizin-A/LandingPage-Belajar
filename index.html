@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>AMARTA TOWN HOUSE</title>
     
     <!-- Panggil Google Fonts (Poppins dengan ketebalan 400, 600, dan 700) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,22 +15,44 @@
 </head>
 <body>
 
-    <!-- Bagian Header -->
-    <header class="glass-header">
-        <div class="brand">
-            <div class="logo"></div> 
-            <div class="brand-text">
-                <span class="name">Nama Kamu</span>
-                <span class="sub-name">Game & Web Developer</span>
+    <!-- Popup Brosur (Carousel) -->
+    <div class="popup-overlay" id="brosur-overlay">
+        <div class="popup-box">
+            <button class="popup-close" id="brosur-close" aria-label="Tutup popup">&times;</button>
+
+            <div class="carousel" id="brosur-carousel">
+                <div class="carousel-track">
+                    <img src="assets/brosur1.jpg" alt="Brosur Investasi 1" class="popup-image">
+                    <img src="assets/brosur2.jpg" alt="Brosur Investasi 2" class="popup-image">
+                </div>
+
+                <button class="carousel-arrow carousel-prev" id="carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                <button class="carousel-arrow carousel-next" id="carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                <div class="carousel-dots" id="carousel-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Bagian Header -->
+    <header class="glass-header">
+        <a href="#home" class="brand">
+            <div class="logo">K</div> 
+            <div class="brand-text">
+                <span class="name">AMARTA TOWN HOUSE</span>
+                <span class="sub-name">Exclusive Student House</span>
+            </div>
+        </a>
         
         <nav class="nav-menu">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#product" class="nav-link">Product</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#news" class="nav-link">News</a>
-            <a href="#informations" class="nav-link">Informations</a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#product" class="nav-link">Detail Proyek</a>
+            <a href="#about" class="nav-link">Tentang Proyek</a>
+            <a href="#news" class="nav-link">Berita</a>
+            <a href="#informations" class="nav-link">Informasi</a>
         </nav>
 
         <div class="hamburger-menu" id="hamburger-toggle">
@@ -43,41 +65,41 @@
     <!-- // Home -->
     <section id="home" class="hero-section">
         <div class="hero-visual">
-            <img src="assets/gambar1.jpg" alt="Visual Proyek Game/Web" class="visual-image">
-                
+            <img src="assets/gambar1.jpg" alt="Desain Eksterior AMARTA TOWN HOUSE" class="visual-image">
+
             <div class="visual-container">
-                    
                 <div class="visual-left">
-                    <h1>Bangun Dunia Digitalmu.</h1>
-                    <p class="visual-subtext">Menghadirkan inovasi game interaktif dan solusi web modern terbaik untuk masa depan digital.</p>
-                        
+                    
+                    <h1>AMARTA TOWN HOUSE</h1>
+                    <p class="visual-subtext">Investasi <b>KOST</b> pada area pusat pendidikan Kota Semarang.</p>
+
                     <div class="search-filter-bar">
                         <div class="filter-group">
-                            <label>Location</label>
+                            <label>Lokasi Proyek</label>
                             <select>
-                                <option value="">Select an Option</option>
-                                <option value="indonesia">Indonesia</option>
+                                <option value="">Pilih Lokasi</option>
+                                <option value="surakarta">Surakarta</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Property Type</label>
+                            <label>Jumlah Unit</label>
                             <select>
-                                <option value="">Select an Option</option>
-                                <option value="game-3d">3D RPG Game</option>
+                                <option value="">Pilih Jumlah</option>
+                                <option value="20">20 Kamar</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Project</label>
+                            <label>Status Proyek</label>
                             <select>
-                                <option value="">Select an Option</option>
-                                <option value="ongoing">Ongoing</option>
+                                <option value="">Pilih Status</option>
+                                <option value="planning">Tahap Perencanaan</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Price Range</label>
+                            <label>Nilai Investasi</label>
                             <select>
-                                <option value="">Select an Option</option>
-                                <option value="tier1">Freemium</option>
+                                <option value="">Pilih Nilai</option>
+                                <option value="tier1">Rp 2 Miliar</option>
                             </select>
                         </div>
                         <button class="btn-search-round">
@@ -88,45 +110,400 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="visual-right">
-                    <div class="hero-form-box">
-                        <h2>DAPATKAN INFO PROYEK & KOLABORASI</h2>
-                        <form class="contact-form">
-                            <input type="text" placeholder="Nama" required>
-                            <input type="email" placeholder="Email" required>
-                            <input type="tel" placeholder="Whatsapp" required>
-                            <button type="submit" class="btn-submit">Kirim Pesan</button>
-                        </form>
+        <!-- Bar Form Kontak (di luar hero, full width) -->
+        <div class="contact-bar">
+            <div class="contact-bar-label">
+                <span>TERTARIK BERINVESTASI?</span>
+                <span>Dapatkan Brosur & Penawaran Lengkap</span>
+            </div>
+
+            <form class="contact-form-bar">
+                <input type="text" placeholder="Nama" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Whatsapp" required>
+                <button type="submit" class="btn-submit-bar">Hubungi Kami</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- // Detail Proyek -->
+    <section id="product" class="project-detail-section">
+        <div class="section-heading">
+            <span class="section-tag">Detail Proyek</span>
+            <h2>Kenali AMARTA TOWN HOUSE Lebih Dekat</h2>
+            <p>Jelajahi denah, eksterior, interior, hingga video tur proyek sebelum Anda berinvestasi.</p>
+        </div>
+
+        <div class="gallery-tabs" id="gallery-tabs">
+            <button class="tab-btn active" data-tab="eksterior">Eksterior</button>
+            <button class="tab-btn" data-tab="interior">Interior</button>
+            <button class="tab-btn" data-tab="denah">Denah 2D</button>
+            <button class="tab-btn" data-tab="brosur">Banner &amp; Brosur</button>
+            <button class="tab-btn" data-tab="video">Video</button>
+        </div>
+
+        <div class="gallery-panels">
+
+            <!-- Eksterior -->
+            <div class="gallery-panel active" data-panel="eksterior">
+                <div class="img-carousel" data-carousel="eksterior">
+                    <div class="img-carousel-track">
+                        <div class="img-carousel-slide">
+                            <img src="assets/eksterior1.jpg" alt="Eksterior AMARTA TOWN HOUSE 1">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/eksterior2.jpeg" alt="Eksterior AMARTA TOWN HOUSE 2">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/eksterior3.jpg" alt="Eksterior AMARTA TOWN HOUSE 3">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/eksterior4.jpg" alt="Eksterior AMARTA TOWN HOUSE 4">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/eksterior5.jpg" alt="Eksterior AMARTA TOWN HOUSE 5">
+                        </div>
                     </div>
+
+                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                    <div class="img-carousel-dots"></div>
+                </div>
+            </div>
+
+            <!-- Interior -->
+            <div class="gallery-panel" data-panel="interior">
+                <div class="img-carousel" data-carousel="interior">
+                    <div class="img-carousel-track">
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior1.png" alt="Interior AMARTA TOWN HOUSE 1">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior2.png" alt="Interior AMARTA TOWN HOUSE 2">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior3.png" alt="Interior AMARTA TOWN HOUSE 3">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior4.png" alt="Interior AMARTA TOWN HOUSE 4">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior5.png" alt="Interior AMARTA TOWN HOUSE 5">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/interior6.jpeg" alt="Interior AMARTA TOWN HOUSE 6">
+                        </div>
+                    </div>
+
+                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                    <div class="img-carousel-dots"></div>
+                </div>
+            </div>
+
+            <!-- Denah 2D -->
+            <div class="gallery-panel" data-panel="denah">
+                <div class="img-carousel" data-carousel="denah">
+                    <div class="img-carousel-track">
+                        <div class="img-carousel-slide">
+                            <img src="assets/denah1.jpg" alt="Denah Lantai 1 AMARTA TOWN HOUSE">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/denah2.jpg" alt="Denah Lantai 2 AMARTA TOWN HOUSE">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/denah3.jpg" alt="Denah Lantai 3 AMARTA TOWN HOUSE">
+                        </div>
+                    </div>
+
+                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                    <div class="img-carousel-dots"></div>
+                </div>
+            </div>
+
+            <!-- Banner & Brosur -->
+            <div class="gallery-panel" data-panel="brosur">
+                <div class="img-carousel" data-carousel="brosur">
+                    <div class="img-carousel-track">
+                        <div class="img-carousel-slide">
+                            <img src="assets/brosur1.jpg" alt="Brosur Investasi AMARTA TOWN HOUSE 1">
+                            <div class="img-carousel-caption">Brosur Halaman 1</div>
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/brosur2.jpg" alt="Brosur Investasi AMARTA TOWN HOUSE 2">
+                            <div class="img-carousel-caption">Brosur Halaman 2</div>
+                        </div>
+                    </div>
+
+                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                    <div class="img-carousel-dots"></div>
                 </div>
 
+                <a href="assets/BROSUR F4 AMARTA.pdf" target="_blank" class="btn-download-brosur">
+                    Unduh Brosur Lengkap (PDF)
+                </a>
+            </div>
+
+            <!-- Video -->
+           <div class="gallery-panel" data-panel="video">
+                <div class="video-wrapper">
+                    <video controls preload="none" poster="assets/gambar1.jpg">
+                        <source src="assets/VID AMARTA.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video HTML5.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="product"></section>
-    <section id="about"></section>
-    <section id="news"></section>
-    <section id="informations"></section>
+    <!-- Lightbox untuk Gallery -->
+    <div class="popup-overlay" id="gallery-lightbox">
+        <div class="popup-box lightbox-box">
+            <button class="popup-close" id="lightbox-close" aria-label="Tutup">&times;</button>
+            <img src="" alt="Pratinjau gambar" id="lightbox-img">
+        </div>
+    </div>
+    <section id="about" class="placeholder-section">
+        <h2>TENTANG PROYEK</h2>
+        <p>(Konten belum diisi)</p>
+    </section>
+    <section id="news" class="placeholder-section">
+        <h2>BERITA</h2>
+        <p>(Konten belum diisi)</p>
+    </section>
+    <section id="informations" class="placeholder-section">
+        <h2>INFORMASI</h2>
+        <p>(Konten belum diisi)</p>
+    </section>
 
     <script>
+        // === Popup Brosur (Carousel) ===
+        const popupOverlay = document.getElementById('brosur-overlay');
+        const popupClose = document.getElementById('brosur-close');
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const dots = document.querySelectorAll('.dot');
+        const carousel = document.getElementById('brosur-carousel');
+
+        let currentSlide = 0;
+        const totalSlides = dots.length;
+        let autoSlideInterval = null;
+
+        function goToSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        carouselNext.addEventListener('click', () => {
+            nextSlide();
+        });
+        carouselPrev.addEventListener('click', () => {
+            prevSlide();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+            });
+        });
+
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+        carousel.addEventListener('touchstart', stopAutoSlide);
+        carousel.addEventListener('touchend', startAutoSlide);
+
+        function closePopup() {
+            popupOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+            stopAutoSlide();
+        }
+
+        popupClose.addEventListener('click', closePopup);
+
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!popupOverlay.classList.contains('show')) return;
+            if (e.key === 'Escape') closePopup();
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        window.addEventListener('load', () => {
+            popupOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            startAutoSlide();
+        });
+
+        // === Hamburger Menu ===
         const hamburger = document.getElementById('hamburger-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
-            // Menambah/menghapus class 'active' saat diklik
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Menutup menu secara otomatis saat salah satu link diklik
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             });
         });
+
+        // === Tab Gallery (Detail Proyek) ===
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const galleryPanels = document.querySelectorAll('.gallery-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                galleryPanels.forEach(panel => {
+                    panel.classList.toggle('active', panel.dataset.panel === target);
+                });
+            });
+        });
+
+        // === Image Carousel (per tab di Detail Proyek) ===
+        document.querySelectorAll('.img-carousel').forEach(initImgCarousel);
+
+        function initImgCarousel(root) {
+            const track = root.querySelector('.img-carousel-track');
+            const slides = root.querySelectorAll('.img-carousel-slide');
+            const prevBtn = root.querySelector('.img-carousel-prev');
+            const nextBtn = root.querySelector('.img-carousel-next');
+            const dotsWrap = root.querySelector('.img-carousel-dots');
+
+            let current = 0;
+            const total = slides.length;
+
+            // Sembunyikan tombol/dots kalau cuma 1 slide (atau kosong)
+            if (total <= 1) {
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+                return;
+            }
+
+            // Bangun dots otomatis sesuai jumlah slide
+            slides.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.classList.add('img-carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            });
+            const dotEls = dotsWrap.querySelectorAll('.img-carousel-dot');
+
+            function goTo(index) {
+                current = (index + total) % total;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dotEls.forEach(d => d.classList.remove('active'));
+                dotEls[current].classList.add('active');
+            }
+
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+
+            // Swipe untuk mobile
+            let touchStartX = 0;
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            track.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const diff = touchEndX - touchStartX;
+                if (Math.abs(diff) > 40) {
+                    if (diff < 0) goTo(current + 1);
+                    else goTo(current - 1);
+                }
+            });
+        }
+
+        // === Lightbox Gallery (klik gambar carousel untuk perbesar) ===
+        const lightbox = document.getElementById('gallery-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('.img-carousel-slide img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.getAttribute('src');
+                lightbox.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox();
+        });
+
+        // === Active State Nav (Scroll-Spy) ===
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-40% 0px -55% 0px'
+        });
+
+        sections.forEach(section => observer.observe(section));
     </script>
 
 </body>
