@@ -667,6 +667,10 @@ section {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     padding: 20px;
+    /* Penting: beri ruang atas agar tombol X tidak terpotong */
+    padding-top: 50px;
+    padding-bottom: 30px;
+    overflow-y: auto;
 }
 
 .popup-overlay.show {
@@ -674,22 +678,26 @@ section {
     visibility: visible;
 }
 
+/* FIX: popup-box tidak fullscreen, ada margin & max-width lebih kecil */
 .popup-box {
     position: relative;
-    max-width: 500px;
-    width: 100%;
+    max-width: 420px;
+    width: calc(100% - 48px);
+    margin: auto;
     transform: scale(0.9);
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .popup-overlay.show .popup-box {
     transform: scale(1);
 }
 
+/* FIX: tombol X selalu terlihat, tidak terpotong layar */
 .popup-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -18px;
+    right: -18px;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -789,10 +797,22 @@ section {
     transform: scale(1.2);
 }
 
+/* FIX mobile: tombol X tidak terpotong di layar kecil */
 @media screen and (max-width: 576px) {
+    .popup-overlay {
+        padding: 55px 16px 24px;
+        align-items: flex-start;
+    }
+
+    .popup-box {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
     .popup-close {
-        top: 10px;
-        right: 10px;
+        top: -14px;
+        right: 0px;
     }
 
     .carousel-arrow {
@@ -813,7 +833,7 @@ section {
     overflow: hidden;
 }
 
-/* Aksen lingkaran dekoratif di background, mengikuti warna emas tema */
+/* Aksen lingkaran dekoratif di background */
 .project-detail-section::before,
 .project-detail-section::after {
     content: "";
@@ -897,6 +917,7 @@ section {
     cursor: pointer;
     transition: 0.3s ease;
     backdrop-filter: blur(6px);
+    white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -1095,15 +1116,15 @@ section {
     background-color: #000;
 }
 
+.video-wrapper iframe,
 .video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     border: 0;
-    background-color: #000;
+    object-fit: contain;
 }
 
 .video-note {
@@ -1127,6 +1148,7 @@ section {
     display: block;
 }
 
+/* FIX: Tab gallery responsive — bisa digeser horizontal di HP */
 @media screen and (max-width: 768px) {
     .project-detail-section {
         padding: 60px 5% 70px;
@@ -1140,8 +1162,11 @@ section {
         justify-content: flex-start;
         overflow-x: auto;
         flex-wrap: nowrap;
-        padding-bottom: 6px;
+        padding-bottom: 10px;
+        padding-left: 2px;
+        padding-right: 2px;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
     }
 
     .gallery-tabs::-webkit-scrollbar {
