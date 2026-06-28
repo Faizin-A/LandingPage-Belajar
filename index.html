@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    
+    <!-- Panggil Google Fonts (Poppins dengan ketebalan 400, 600, dan 700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- File CSS kamu -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Bagian Header -->
+    <header class="glass-header">
+        <div class="brand">
+            <div class="logo"></div> 
+            <div class="brand-text">
+                <span class="name">Nama Kamu</span>
+                <span class="sub-name">Game & Web Developer</span>
+            </div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#product" class="nav-link">Product</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#news" class="nav-link">News</a>
+            <a href="#informations" class="nav-link">Informations</a>
+        </nav>
+
+        <div class="hamburger-menu" id="hamburger-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- // Home -->
+    <section id="home" class="hero-section">
+        <div class="hero-visual">
+            <img src="assets/gambar1.jpg" alt="Visual Proyek Game/Web" class="visual-image">
+                
+            <div class="visual-container">
+                    
+                <div class="visual-left">
+                    <h1>Bangun Dunia Digitalmu.</h1>
+                    <p class="visual-subtext">Menghadirkan inovasi game interaktif dan solusi web modern terbaik untuk masa depan digital.</p>
+                        
+                    <div class="search-filter-bar">
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <select>
+                                <option value="">Select an Option</option>
+                                <option value="indonesia">Indonesia</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Property Type</label>
+                            <select>
+                                <option value="">Select an Option</option>
+                                <option value="game-3d">3D RPG Game</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Project</label>
+                            <select>
+                                <option value="">Select an Option</option>
+                                <option value="ongoing">Ongoing</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Price Range</label>
+                            <select>
+                                <option value="">Select an Option</option>
+                                <option value="tier1">Freemium</option>
+                            </select>
+                        </div>
+                        <button class="btn-search-round">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="visual-right">
+                    <div class="hero-form-box">
+                        <h2>DAPATKAN INFO PROYEK & KOLABORASI</h2>
+                        <form class="contact-form">
+                            <input type="text" placeholder="Nama" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="tel" placeholder="Whatsapp" required>
+                            <button type="submit" class="btn-submit">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="product"></section>
+    <section id="about"></section>
+    <section id="news"></section>
+    <section id="informations"></section>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            // Menambah/menghapus class 'active' saat diklik
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Menutup menu secara otomatis saat salah satu link diklik
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

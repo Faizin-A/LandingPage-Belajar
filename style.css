@@ -1,0 +1,543 @@
+/* ==========================================================================
+   1. RESET & INITIAL STYLES
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    min-height: 200vh; /* Memungkinkan halaman di-scroll */
+}
+
+section {
+    scroll-margin-top: 70px; /* Jarak scroll agar tidak tertutup header */
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR (GLASSMORPHISM)
+   ========================================================================== */
+.glass-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%; /* Disesuaikan agar logo lebih mepet ke kiri luar */
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak ideal yang fleksibel antara logo & teks */
+    cursor: pointer;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    border-radius: 50%;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.sub-name {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+}
+
+/* Navigasi Menu Desktop */
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4facfe;
+}
+
+/* Hamburger Menu Toggle (Default Sembunyi di PC) */
+.hamburger-menu {
+    display: none; 
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.hamburger-menu:hover span {
+    background-color: #4facfe;
+    transform: scaleX(1.1);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (HOME) - NEW SIDE-BY-SIDE LAYOUT
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+/* --- AREA VISUAL UTAMA --- */
+.hero-visual {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Mengambil hampir seluruh tinggi layar pertama */
+    overflow: hidden;
+}
+
+.visual-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Container Transparan Utama yang Membagi Kiri dan Kanan */
+.visual-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: row; /* Bersebelahan di desktop */
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3));
+}
+
+/* --- SISI KIRI (Teks & Search Bar) --- */
+.visual-left {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.visual-left h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    margin: 0;
+    padding: 0;
+}
+
+.visual-subtext {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Kapsul Filter Dropdown Melayang Kalem */
+.search-filter-bar {
+    display: flex;
+    background: rgba(30, 41, 59, 0.75); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 10px 15px 10px 35px;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    padding-right: 15px;
+}
+
+.filter-group:not(:nth-last-child(2))::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 2px;
+}
+
+.filter-group select {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    padding-right: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+/* Tombol Cari Bulat Merah */
+.btn-search-round {
+    background-color: #e11d48;
+    color: #ffffff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-search-round:hover {
+    background-color: #be123c;
+    transform: scale(1.05);
+}
+
+/* --- SISI KANAN (Kotak Form Mika / Glassmorphism Box) --- */
+.visual-right {
+    flex: 0.8;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-form-box {
+    background: rgba(30, 41, 59, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 35px 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.hero-form-box h2 {
+    font-size: 1.3rem;
+    color: #f1f5f9;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Tersusun vertikal ke bawah di dalam kotak mika */
+    gap: 15px;
+    width: 100%;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    background-color: rgba(15, 23, 42, 0.6);
+    border: 1px solid #475569;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.contact-form input:focus {
+    border-color: #64748b;
+    background-color: rgba(15, 23, 42, 0.8);
+}
+
+.contact-form input::placeholder {
+    color: #94a3b8;
+}
+
+/* Tombol Kirim Pesan Kalem */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+    background-color: #cbd5e1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #94a3b8;
+}
+
+.btn-submit:active {
+    transform: scale(0.97);
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN (BREAKPOINTS)
+   ========================================================================== */
+
+/* --- Tablet / HP Large (Maksimal 992px) --- */
+@media screen and (max-width: 992px) {
+    .hero-visual {
+        height: auto; /* Mengikuti tinggi konten secara dinamis */
+        min-height: 100vh;
+        display: flex;
+        position: relative;
+    }
+
+    /* Memaksa gambar tetap menjadi background penuh dan melar ke bawah mengikuti konten */
+    .visual-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    /* Wadah utama konten: Mengunci semua elemen agar TETAP melayang di atas gambar */
+    .visual-container {
+        position: relative;
+        z-index: 2;
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* Menyusun elemen berurutan ke bawah secara rapi */
+        justify-content: flex-start;
+        align-items: center;
+        padding: 100px 5% 60px 5%; /* Jarak aman dari header atas dan batas bawah gambar */
+        gap: 30px; /* Jarak antar elemen (Teks -> Filter -> Form) */
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%);
+    }
+
+    /* Memastikan porsi kiri dan kanan mengambil lebar penuh di HP */
+    .visual-left, .visual-right {
+        width: 100%;
+        flex: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Membuat teks dan komponen center-aligned di HP */
+    }
+
+    .visual-left h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .visual-subtext {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    /* Susunan Filter Bar Vertikal di HP */
+    .search-filter-bar {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .filter-group {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .filter-group:not(:nth-last-child(2))::after {
+        display: none; /* Menghilangkan garis pembatas horizontal desktop */
+    }
+
+    .btn-search-round {
+        width: 100%;
+        border-radius: 8px;
+        height: 45px;
+    }
+
+    /* Penataan Kotak Form di HP */
+    .visual-right {
+        justify-content: center;
+    }
+
+    .hero-form-box {
+        max-width: 100%; /* Lebar form mengikuti layar HP */
+        padding: 25px 20px;
+    }
+}
+
+/* --- HP Standard (Maksimal 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Munculkan Hamburger Menu */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Transformasi Nav Menu Jadi Slide-out */
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        width: 200px;
+        background: rgba(15, 32, 39, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+        border-radius: 0 0 0 10px;
+        transition: 0.4s ease;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: block;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* Animasi Hamburger Jadi Silang (X) */
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Penyesuaian Komponen Hero di HP */
+    .visual-overlay h1 {
+        font-size: 1.8rem;
+    }
+
+    .visual-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    /* Kapsul Filter Berubah Vertikal di HP */
+    .search-filter-bar {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .filter-group {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis pembatas tipis kalem di HP */
+    }
+
+    .filter-group:not(:nth-last-child(2))::after {
+        display: none;
+    }
+
+    .btn-search-round {
+        width: 100%;
+        border-radius: 10px;
+        height: 45px;
+    }
+}
+
+/* --- HP Small (Maksimal 576px) --- */
+@media screen and (max-width: 576px) {
+    .glass-header {
+        padding: 0 5%;
+        height: 60px;
+    }
+
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .name {
+        font-size: 1.1rem;
+    }
+
+    .sub-name {
+        font-size: 0.65rem;
+    }
+
+    .hamburger-menu span {
+        width: 22px;
+        height: 2.5px;
+    }
+}
