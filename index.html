@@ -51,7 +51,7 @@
             <a href="#home" class="nav-link active">Home</a>
             <a href="#product" class="nav-link">Detail Proyek</a>
             <a href="#about" class="nav-link">Tentang Proyek</a>
-            <a href="#news" class="nav-link">Berita</a>
+            <a href="#benefit" class="nav-link">Keunggulan</a>
             <a href="#informations" class="nav-link">Informasi</a>
         </nav>
 
@@ -73,59 +73,34 @@
                     <h1>AMARTA TOWN HOUSE</h1>
                     <p class="visual-subtext">Investasi <b>KOST</b> pada area pusat pendidikan Kota Semarang.</p>
 
-                    <div class="search-filter-bar">
+                    <form class="search-filter-bar" id="wa-form">
                         <div class="filter-group">
-                            <label>Lokasi Proyek</label>
-                            <select>
+                            <label for="wa-nama">Nama Anda</label>
+                            <input type="text" id="wa-nama" name="nama" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="filter-group">
+                            <label for="wa-lokasi">Lokasi Proyek</label>
+                            <select id="wa-lokasi" name="lokasi" required>
                                 <option value="">Pilih Lokasi</option>
-                                <option value="surakarta">Surakarta</option>
+                                <option value="Kota Semarang">Kota Semarang</option>
                             </select>
                         </div>
                         <div class="filter-group">
-                            <label>Jumlah Unit</label>
-                            <select>
-                                <option value="">Pilih Jumlah</option>
-                                <option value="20">20 Kamar</option>
+                            <label for="wa-tipe">Tipe Unit</label>
+                            <select id="wa-tipe" name="tipe" required>
+                                <option value="">Pilih Tipe Unit</option>
+                                <option value="10 Kamar (2 Lt)">10 Kamar (2 Lt)</option>
+                                <option value="13 Kamar (3 Lt)">13 Kamar (3 Lt)</option>
                             </select>
                         </div>
-                        <div class="filter-group">
-                            <label>Status Proyek</label>
-                            <select>
-                                <option value="">Pilih Status</option>
-                                <option value="planning">Tahap Perencanaan</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label>Nilai Investasi</label>
-                            <select>
-                                <option value="">Pilih Nilai</option>
-                                <option value="tier1">Rp 2 Miliar</option>
-                            </select>
-                        </div>
-                        <button class="btn-search-round">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <button type="submit" class="btn-search-round btn-whatsapp" aria-label="Chat via WhatsApp">
+                            <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
+                                <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.394.63 4.64 1.822 6.578L4 29l7.62-1.994A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.818c-1.99 0-3.94-.535-5.633-1.547l-.404-.24-4.522 1.184 1.207-4.408-.263-.452A9.77 9.77 0 0 1 5.182 15c0-5.98 4.867-10.818 10.822-10.818S26.826 9.02 26.826 15 21.96 24.818 16.004 24.818zm5.94-8.16c-.325-.163-1.924-.95-2.222-1.058-.298-.108-.515-.163-.732.163-.217.325-.84 1.058-1.03 1.276-.19.217-.38.244-.705.081-.325-.163-1.372-.505-2.613-1.612-.966-.862-1.618-1.927-1.808-2.252-.19-.325-.02-.5.143-.663.147-.146.325-.38.488-.57.163-.19.217-.325.325-.542.108-.217.054-.407-.027-.57-.081-.163-.732-1.766-1.003-2.418-.264-.635-.532-.55-.732-.56l-.624-.011c-.217 0-.57.081-.868.407-.298.325-1.137 1.112-1.137 2.713 0 1.6 1.164 3.147 1.327 3.364.163.217 2.29 3.497 5.55 4.905.775.334 1.38.534 1.852.684.778.247 1.487.212 2.047.129.624-.093 1.924-.786 2.196-1.545.271-.76.271-1.41.19-1.545-.081-.136-.298-.217-.623-.38z"/>
                             </svg>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </div>
-
-        <!-- Bar Form Kontak (di luar hero, full width) -->
-        <div class="contact-bar">
-            <div class="contact-bar-label">
-                <span>TERTARIK BERINVESTASI?</span>
-                <span>Dapatkan Brosur & Penawaran Lengkap</span>
-            </div>
-
-            <form class="contact-form-bar">
-                <input type="text" placeholder="Nama" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Whatsapp" required>
-                <button type="submit" class="btn-submit-bar">Hubungi Kami</button>
-            </form>
         </div>
     </section>
 
@@ -133,22 +108,44 @@
     <section id="product" class="project-detail-section">
         <div class="section-heading">
             <span class="section-tag">Detail Proyek</span>
-            <h2>Kenali AMARTA TOWN HOUSE Lebih Dekat</h2>
-            <p>Jelajahi denah, eksterior, interior, hingga video tur proyek sebelum Anda berinvestasi.</p>
+            <h2>Pelajari Setiap Detail Sebelum Berinvestasi</h2>
+            <p>Lihat konsep kawasan, eksterior, interior, dan denah dari AMARTA TOWN HOUSE. Setiap bagian dirancang untuk mendukung kenyamanan penghuni, efisiensi penggunaan ruang, dan kemudahan pengelolaan properti.</p>
         </div>
 
         <div class="gallery-tabs" id="gallery-tabs">
-            <button class="tab-btn active" data-tab="eksterior">Eksterior</button>
+            <button class="tab-btn active" data-tab="kawasan">Kawasan</button>
+            <button class="tab-btn" data-tab="eksterior">Eksterior</button>
             <button class="tab-btn" data-tab="interior">Interior</button>
             <button class="tab-btn" data-tab="denah">Denah 2D</button>
-            <button class="tab-btn" data-tab="brosur">Banner &amp; Brosur</button>
             <button class="tab-btn" data-tab="video">Video</button>
         </div>
 
         <div class="gallery-panels">
 
+            <!-- Kawasan -->
+            <div class="gallery-panel active" data-panel="kawasan">
+                <div class="img-carousel" data-carousel="kawasan">
+                    <div class="img-carousel-track">
+                        <div class="img-carousel-slide">
+                            <img src="assets/kawasan1.jpg" alt="Kawasan AMARTA TOWN HOUSE 1">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/kawasan2.jpg" alt="Kawasan AMARTA TOWN HOUSE 2">
+                        </div>
+                        <div class="img-carousel-slide">
+                            <img src="assets/kawasan3.jpg" alt="Kawasan AMARTA TOWN HOUSE 3">
+                        </div>
+                    </div>
+
+                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
+                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
+
+                    <div class="img-carousel-dots"></div>
+                </div>
+            </div>
+
             <!-- Eksterior -->
-            <div class="gallery-panel active" data-panel="eksterior">
+            <div class="gallery-panel" data-panel="eksterior">
                 <div class="img-carousel" data-carousel="eksterior">
                     <div class="img-carousel-track">
                         <div class="img-carousel-slide">
@@ -228,31 +225,6 @@
                 </div>
             </div>
 
-            <!-- Banner & Brosur -->
-            <div class="gallery-panel" data-panel="brosur">
-                <div class="img-carousel" data-carousel="brosur">
-                    <div class="img-carousel-track">
-                        <div class="img-carousel-slide">
-                            <img src="assets/brosur1.jpg" alt="Brosur Investasi AMARTA TOWN HOUSE 1">
-                            <div class="img-carousel-caption">Brosur Halaman 1</div>
-                        </div>
-                        <div class="img-carousel-slide">
-                            <img src="assets/brosur2.jpg" alt="Brosur Investasi AMARTA TOWN HOUSE 2">
-                            <div class="img-carousel-caption">Brosur Halaman 2</div>
-                        </div>
-                    </div>
-
-                    <button class="img-carousel-arrow img-carousel-prev" aria-label="Sebelumnya">&#10094;</button>
-                    <button class="img-carousel-arrow img-carousel-next" aria-label="Berikutnya">&#10095;</button>
-
-                    <div class="img-carousel-dots"></div>
-                </div>
-
-                <a href="assets/BROSUR F4 AMARTA.pdf" target="_blank" class="btn-download-brosur">
-                    Unduh Brosur Lengkap (PDF)
-                </a>
-            </div>
-
            <!-- Video -->
             <div class="gallery-panel" data-panel="video">
                 <div class="video-wrapper">
@@ -279,7 +251,7 @@
     <section id="about" class="about-section">
         <div class="section-heading light-heading">
             <span class="section-tag section-tag-dark">Tentang Proyek</span>
-            <h2>Hunian Eksklusif untuk Investasi Masa Depan</h2>
+            <h2>Properti KOST yang Dirancang untuk Pasar Mahasiswa</h2>
             <p>AMARTA TOWN HOUSE hadir sebagai jawaban atas kebutuhan hunian modern di kawasan pusat pendidikan, dirancang untuk memberi kenyamanan bagi penghuni dan keuntungan optimal bagi investor.</p>
         </div>
 
@@ -295,112 +267,98 @@
             </div>
 
             <div class="about-content">
-                <h3>Mengapa Memilih AMARTA TOWN HOUSE?</h3>
-                <p>Berlokasi strategis di kawasan pendidikan Surakarta, AMARTA TOWN HOUSE dirancang dengan konsep town house modern minimalis yang mengutamakan efisiensi lahan, keamanan, dan kenyamanan jangka panjang &mdash; baik untuk ditinggali maupun sebagai instrumen investasi properti.</p>
+                <h2>Mengapa Memilih AMARTA TOWN HOUSE?</h2>
+                <br>
 
                 <ul class="about-checklist">
-                    <li>
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Lokasi strategis, dekat kampus &amp; pusat kota
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Desain modern dengan material berkualitas
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Legalitas lengkap &amp; proses investasi transparan
-                    </li>
-                    <li>
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Potensi imbal hasil sewa yang menjanjikan
-                    </li>
+                    <h3>1. Berada di Kawasan Pendidikan Kota Semarang</h3>
+                    <p>Lokasi strategis di pusat pendidikan Kota Semarang (UNDIP, POLINES, POLTEKKES), menjadikan AMARTA TOWN HOUSE sebagai pilihan hunian yang diminati mahasiswa dan profesional muda</p>
+                    
+                    <h3>2. Design Custom</h3>
+                    <p>Wujudkan visi properti impian Anda melalui kebebasan kustomisasi desain yang eksklusif dan selaras dengan selera pasar hunian modern dan selera Anda sendiri</p>
+
+                    <h3>3. Passive Income Stabil</h3>
+                    <p>Amankan arus kas bulanan Anda dengan kepastian passive income jangka panjang berkat captive market yang tidak pernah surut di kawasan strategis pusat pendidikan Kota Semarang</p>
+
+                    <h3>4. Full Furnished</h3>
+                    <p>Langsung hasilkan keuntungan sejak hari pertama tanpa repot karena setiap unit diserahterimakan dalam kondisi full furnished</p>
                 </ul>
-            </div>
-        </div>
-
-        <div class="about-features">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                </div>
-                <h4>Lokasi Strategis</h4>
-                <p>Akses mudah ke kampus, sekolah, dan pusat aktivitas Kota Surakarta.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V9l7-6 7 6v12"></path><path d="M9 21v-6h6v6"></path></svg>
-                </div>
-                <h4>Desain Modern</h4>
-                <p>Arsitektur minimalis yang efisien, estetik, dan nyaman ditinggali.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                </div>
-                <h4>Keamanan Terjamin</h4>
-                <p>Lingkungan hunian yang aman dan nyaman untuk keluarga maupun penyewa.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                </div>
-                <h4>Investasi Menjanjikan</h4>
-                <p>Peluang capital gain &amp; passive income dari sektor properti pendidikan.</p>
             </div>
         </div>
     </section>
 
-    <!-- // Berita -->
-    <section id="news" class="news-section">
+    <!-- // Keunggulan & Benefit -->
+    <section id="benefit" class="benefit-section">
         <div class="section-heading">
-            <span class="section-tag">Berita &amp; Update</span>
-            <h2>Perkembangan Terbaru Proyek</h2>
-            <p>Pantau progres pembangunan dan informasi terkini seputar AMARTA TOWN HOUSE.</p>
+            <span class="section-tag">Keunggulan &amp; Benefit</span>
+            <h2>Fasilitas Unggulan di Setiap Unit</h2>
+            <p>Setiap unit AMARTA TOWN HOUSE dilengkapi fasilitas modern yang meningkatkan kenyamanan penghuni sekaligus nilai investasi Anda.</p>
         </div>
 
-        <div class="news-grid">
-            <article class="news-card">
-                <div class="news-thumb">
-                    <img src="assets/eksterior4.jpg" alt="Progres pembangunan Amarta Town House">
-                    <span class="news-date">12 Jun 2026</span>
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/smartDoorLock.png" alt="Smart Door Lock AMARTA TOWN HOUSE">
                 </div>
-                <div class="news-body">
-                    <span class="news-category">Progres Pembangunan</span>
-                    <h3>Pembangunan Struktur Utama Rampung Lebih Cepat</h3>
-                    <p>Progres konstruksi AMARTA TOWN HOUSE terus berjalan sesuai rencana, dengan pengerjaan struktur utama yang menunjukkan kemajuan signifikan setiap bulannya.</p>
-                    <a href="#" class="news-link">Baca Selengkapnya <span>&rarr;</span></a>
-                </div>
-            </article>
+                <h3>Smart Door Lock</h3>
+                <p>Akses kamar tanpa kunci fisik, aman dan praktis dengan sistem keamanan digital.</p>
+            </div>
 
-            <article class="news-card">
-                <div class="news-thumb">
-                    <img src="assets/interior4.png" alt="Promo early bird Amarta Town House">
-                    <span class="news-date">28 Mei 2026</span>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/waterHeater.png" alt="Water Heater AMARTA TOWN HOUSE">
                 </div>
-                <div class="news-body">
-                    <span class="news-category">Promo Investasi</span>
-                    <h3>Promo Early Bird untuk 10 Unit Pertama</h3>
-                    <p>Dapatkan penawaran investasi terbaik untuk pemesanan unit di tahap awal, lengkap dengan skema pembayaran yang fleksibel bagi calon investor.</p>
-                    <a href="#" class="news-link">Baca Selengkapnya <span>&rarr;</span></a>
-                </div>
-            </article>
+                <h3>Water Heater</h3>
+                <p>Air panas siap pakai di setiap kamar untuk kenyamanan penghuni sepanjang hari.</p>
+            </div>
 
-            <article class="news-card">
-                <div class="news-thumb">
-                    <img src="assets/eksterior2.jpeg" alt="Kunjungan lokasi Amarta Town House">
-                    <span class="news-date">05 Mei 2026</span>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/airConditioner.png" alt="Air Conditioner AMARTA TOWN HOUSE">
                 </div>
-                <div class="news-body">
-                    <span class="news-category">Kegiatan</span>
-                    <h3>Open Site Visit Bersama Calon Investor</h3>
-                    <p>Tim AMARTA TOWN HOUSE mengadakan kunjungan lokasi bagi calon investor untuk melihat langsung progres pembangunan dan potensi kawasan sekitar.</p>
-                    <a href="#" class="news-link">Baca Selengkapnya <span>&rarr;</span></a>
+                <h3>Air Conditioner</h3>
+                <p>Pendingin udara terpasang di setiap unit demi kenyamanan istirahat penghuni.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/customDesain.png" alt="Custom Desain AMARTA TOWN HOUSE">
                 </div>
-            </article>
+                <h3>Custom Desain</h3>
+                <p>Kebebasan menentukan desain interior sesuai selera dan kebutuhan pasar.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/fullFurnished.png" alt="Full Furnished AMARTA TOWN HOUSE">
+                </div>
+                <h3>Full Furnished</h3>
+                <p>Unit siap huni lengkap dengan furnitur, langsung dapat disewakan.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/balikNama.png" alt="Balik Nama Sertifikat AMARTA TOWN HOUSE">
+                </div>
+                <h3>Balik Nama</h3>
+                <p>Proses balik nama sertifikat kepemilikan diurus hingga tuntas untuk investor.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/tandonAtas.png" alt="Tandon Air Atas AMARTA TOWN HOUSE">
+                </div>
+                <h3>Tandon Atas</h3>
+                <p>Tandon air atas berkapasitas besar menjaga tekanan dan pasokan air tetap stabil.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="assets/tandonBawah.png" alt="Tandon Air Bawah AMARTA TOWN HOUSE">
+                </div>
+                <h3>Tandon Bawah</h3>
+                <p>Tandon air bawah memastikan cadangan air selalu tersedia untuk seluruh unit.</p>
+            </div>
         </div>
     </section>
 
@@ -419,9 +377,9 @@
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div class="info-text">
-                        <h4>Alamat Kantor Pemasaran</h4>
+                        <h4>Alamat</h4>
                         <!-- TODO: ganti dengan alamat lengkap & akurat -->
-                        <p>Jl. Ki Hajar Dewantara, Kentingan, Jebres, Surakarta, Jawa Tengah 57126</p>
+                        <p>Kramas, Kec. Tembalang, Kota Semarang, Jawa Tengah 50278</p>
                     </div>
                 </div>
 
@@ -430,9 +388,13 @@
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     </div>
                     <div class="info-text">
-                        <h4>Telepon / WhatsApp</h4>
-                        <!-- TODO: ganti dengan nomor WhatsApp aktif -->
-                        <p>+62 812-3456-7890</p>
+                        <h4>Marketing Executive</h4>
+                        <a href="https://wa.me/6289673247693" target="_blank" rel="noopener noreferrer" class="wa-link">
+                            <p>+62 896 7324 7693 (Seno)</p>
+                        </a>
+                        <a href="https://wa.me/6285640839695" target="_blank" rel="noopener noreferrer" class="wa-link">
+                            <p>+62 856 4083 9695 (Fati)</p>
+                        </a> 
                     </div>
                 </div>
 
@@ -443,7 +405,7 @@
                     <div class="info-text">
                         <h4>Email</h4>
                         <!-- TODO: ganti dengan email resmi -->
-                        <p>marketing@amartatownhouse.id</p>
+                        <p>amartatownhouse@gmail.com</p>
                     </div>
                 </div>
 
@@ -456,20 +418,17 @@
                         <p>Senin &ndash; Sabtu, 09.00 &ndash; 17.00 WIB</p>
                     </div>
                 </div>
-
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 3.8a8.94 8.94 0 0 0-7.73 13.4L3 21l3.94-1.24a8.9 8.9 0 0 0 5.1 1.6h.01c4.93 0 8.94-4 8.95-8.93a8.87 8.87 0 0 0-2.4-6.11zM12.06 19.7h-.01a7.4 7.4 0 0 1-3.77-1.03l-.27-.16-2.8.88.75-2.73-.18-.28a7.4 7.4 0 0 1 6.29-11.28 7.4 7.4 0 0 1 7.4 7.42c0 4.08-3.33 7.18-7.41 7.18zm4.06-5.55c-.22-.11-1.31-.65-1.51-.72-.2-.08-.35-.11-.5.11-.15.22-.57.72-.7.86-.13.15-.26.16-.48.05-.22-.11-.94-.35-1.79-1.11a6.7 6.7 0 0 1-1.24-1.55c-.13-.22-.01-.34.1-.46.11-.11.25-.28.37-.42.11-.14.15-.24.23-.4.08-.15.04-.28-.02-.4-.07-.11-.6-1.45-.82-1.99-.17-.44-.35-.38-.5-.39h-.42c-.15 0-.38.06-.58.28-.2.22-.77.75-.77 1.83 0 1.08.79 2.12.9 2.27.11.15 1.5 2.28 3.63 3.1 1.8.68 2.16.55 2.55.51.39-.04 1.31-.53 1.5-1.05.19-.51.19-.95.13-1.05-.06-.09-.22-.15-.44-.26z"></path></svg>
-                    Chat via WhatsApp
-                </a>
             </div>
 
             <div class="info-map">
-                <iframe
-                    src="https://www.google.com/maps?q=Kentingan,+Jebres,+Surakarta,+Jawa+Tengah&output=embed"
-                    title="Peta Lokasi AMARTA TOWN HOUSE"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1007.9166938313458!2d110.44533366956986!3d-7.069208499558328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708f001e335fbf%3A0x1aa53e57b1de7439!2sAmarta%20Town%20House!5e1!3m2!1sid!2sid!4v1783696930861!5m2!1sid!2sid" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                title="Peta Lokasi AMARTA TOWN HOUSE"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
     </section>
@@ -693,6 +652,28 @@
         });
 
         sections.forEach(section => observer.observe(section));
+
+        // === Form Search-Filter -> WhatsApp ===
+        const waForm = document.getElementById('wa-form');
+        const WA_NUMBER = '6283838367497';
+
+        waForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nama = document.getElementById('wa-nama').value.trim();
+            const lokasi = document.getElementById('wa-lokasi').value;
+            const tipe = document.getElementById('wa-tipe').value;
+
+            if (!nama || !lokasi || !tipe) {
+                alert('Mohon lengkapi Nama, Lokasi, dan Tipe Unit terlebih dahulu.');
+                return;
+            }
+
+            const pesan = `Halo admin AMARTA TOWN HOUSE, saya ${nama} tertarik dengan lokasi ${lokasi} dengan tipe ${tipe}.`;
+            const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesan)}`;
+
+            window.open(waURL, '_blank');
+        });
     </script>
 
 </body>

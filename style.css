@@ -246,7 +246,7 @@ section {
     padding-right: 15px;
 }
 
-.filter-group:not(:nth-last-child(2))::after {
+.filter-group:not(:last-child)::after {
     content: "";
     position: absolute;
     right: 10px;
@@ -280,6 +280,21 @@ section {
     background-position: right center;
 }
 
+.filter-group input[type="text"] {
+    font-size: 0.95rem;
+    color: #1a2e2f;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    padding-right: 15px;
+    font-family: inherit;
+}
+
+.filter-group input[type="text"]::placeholder {
+    color: #9aa6a6;
+}
+
 /* Tombol Cari Bulat */
 .btn-search-round {
     background-color: #d4af6a;
@@ -298,6 +313,17 @@ section {
 
 .btn-search-round:hover {
     background-color: #b8924f;
+    transform: scale(1.05);
+}
+
+/* Tombol WhatsApp (menggantikan tombol cari) */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe5a;
     transform: scale(1.05);
 }
 
@@ -331,85 +357,6 @@ section {
     width: 1px;
     height: 36px;
     background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* ==========================================================================
-   3B. CONTACT BAR (Bar Form di Bawah Hero)
-   ========================================================================== */
-.contact-bar {
-    width: 100%;
-    background-color: #0d3b3e;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 24px 5%;
-    flex-wrap: wrap;
-}
-
-.contact-bar-label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #ffffff;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.contact-form-bar {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-.contact-form-bar input {
-    flex: 1;
-    min-width: 160px;
-    max-width: 260px;
-    padding: 14px 16px;
-    font-size: 0.95rem;
-    color: #1a2e2f;
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.contact-form-bar input:focus {
-    border-color: #d4af6a;
-    box-shadow: 0 0 0 2px rgba(212, 175, 106, 0.35);
-}
-
-.contact-form-bar input::placeholder {
-    color: #8a9a9a;
-}
-
-.btn-submit-bar {
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1a2e2f;
-    background-color: #d4af6a;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-submit-bar:hover {
-    background-color: #b8924f;
-}
-
-.btn-submit-bar:active {
-    transform: scale(0.97);
 }
 
 /* ==========================================================================
@@ -485,7 +432,7 @@ section {
         border-bottom: 1px solid rgba(13, 59, 62, 0.1);
     }
 
-    .filter-group:not(:nth-last-child(2))::after {
+    .filter-group:not(:last-child)::after {
         display: none;
     }
 
@@ -571,7 +518,7 @@ section {
         border-bottom: 1px solid rgba(13, 59, 62, 0.1);
     }
 
-    .filter-group:not(:nth-last-child(2))::after {
+    .filter-group:not(:last-child)::after {
         display: none;
     }
 
@@ -591,34 +538,6 @@ section {
 
     .stat-label {
         font-size: 0.7rem;
-    }
-
-    .contact-bar {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px 5%;
-        gap: 16px;
-    }
-
-    .contact-bar-label {
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .contact-form-bar {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-    }
-
-    .contact-form-bar input {
-        max-width: 100%;
-        min-width: 0;
-        width: 100%;
-    }
-
-    .btn-submit-bar {
-        width: 100%;
     }
 }
 
@@ -1327,14 +1246,12 @@ section {
     font-size: 1.6rem;
     font-weight: 700;
     color: #0d3b3e;
-    margin-bottom: 16px;
 }
 
 .about-content p {
     font-size: 0.98rem;
     line-height: 1.7;
     color: #5c6b6b;
-    margin-bottom: 24px;
 }
 
 .about-checklist {
@@ -1364,58 +1281,75 @@ section {
     box-sizing: border-box;
 }
 
-.about-features {
+.benefit-grid {
     max-width: 1140px;
-    margin: 80px auto 0;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    /* UBAH DARI repeat(3, 1fr) MENJADI KODE DI BAWAH: */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Sedikit diperkecil dari 28px agar lebih muat pas */
+    position: relative;
+    z-index: 1;
 }
 
-.feature-card {
+.benefit-card {
     background-color: #f7f7f6;
     border: 1px solid rgba(13, 59, 62, 0.08);
     border-radius: 18px;
-    padding: 30px 24px;
-    text-align: left;
+    padding: 26px;
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.feature-card:hover {
+.benefit-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 35px rgba(13, 59, 62, 0.12);
     border-color: rgba(212, 175, 106, 0.4);
 }
 
-.feature-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #0d3b3e, #1a5c5f);
-    color: #d4af6a;
+.benefit-icon {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+    background-color: #ffffff;
+    border: 1px solid rgba(13, 59, 62, 0.06);
+    box-shadow: 0 8px 20px rgba(13, 59, 62, 0.06);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
+    padding: 34px;
 }
 
-.feature-card h4 {
-    font-size: 1.05rem;
+.benefit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.benefit-card:hover .benefit-icon img {
+    transform: scale(1.1);
+}
+
+.benefit-card h3 {
+    font-size: 1.02rem;
     font-weight: 700;
-    color: #1a2e2f;
+    color: #0d3b3e;
+    margin-top: 18px;
     margin-bottom: 8px;
 }
 
-.feature-card p {
-    font-size: 0.88rem;
+.benefit-card p {
+    font-size: 0.85rem;
     line-height: 1.55;
     color: #5c6b6b;
 }
 
 /* ==========================================================================
-   6B. BERITA (NEWS)
+   6B. KEUNGGULAN & BENEFIT
    ========================================================================== */
-.news-section {
+.benefit-section {
     width: 100%;
     padding: 90px 5% 100px;
     background: linear-gradient(160deg, #0d3b3e 0%, #133f42 45%, #1a5c5f 100%);
@@ -1423,7 +1357,7 @@ section {
     overflow: hidden;
 }
 
-.news-section::before {
+.benefit-section::before {
     content: "";
     position: absolute;
     width: 380px;
@@ -1433,117 +1367,6 @@ section {
     top: -100px;
     left: -80px;
     pointer-events: none;
-}
-
-.news-grid {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    position: relative;
-    z-index: 1;
-}
-
-.news-card {
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    overflow: hidden;
-    backdrop-filter: blur(6px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.news-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.28);
-    border-color: rgba(212, 175, 106, 0.45);
-}
-
-.news-thumb {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-}
-
-.news-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.news-card:hover .news-thumb img {
-    transform: scale(1.08);
-}
-
-.news-date {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background-color: #d4af6a;
-    color: #1a2e2f;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 50px;
-    letter-spacing: 0.3px;
-}
-
-.news-body {
-    padding: 24px 22px 26px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.news-category {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: #d4af6a;
-    margin-bottom: 10px;
-}
-
-.news-body h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-
-.news-body p {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.72);
-    margin-bottom: 20px;
-    flex: 1;
-}
-
-.news-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #f3e2bc;
-    text-decoration: none;
-    transition: gap 0.3s ease, color 0.3s ease;
-}
-
-.news-link span {
-    transition: transform 0.3s ease;
-}
-
-.news-link:hover {
-    color: #d4af6a;
-    gap: 10px;
 }
 
 /* ==========================================================================
@@ -1605,27 +1428,6 @@ section {
     color: #5c6b6b;
 }
 
-.btn-whatsapp {
-    margin-top: 4px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #25d366;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.95rem;
-    padding: 15px 24px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-whatsapp:hover {
-    background-color: #1fb855;
-    transform: translateY(-2px);
-}
-
 .info-map {
     position: relative;
     border-radius: 22px;
@@ -1646,7 +1448,7 @@ section {
 }
 
 /* ==========================================================================
-   6D. RESPONSIVE - ABOUT / NEWS / INFORMASI
+   6D. RESPONSIVE - ABOUT / BENEFIT / INFORMASI
    ========================================================================== */
 @media screen and (max-width: 992px) {
     .about-grid {
@@ -1660,12 +1462,9 @@ section {
         padding: 20px 20px 40px 20px;
     }
 
-    .about-features {
+    .benefit-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     .info-grid {
@@ -1683,7 +1482,7 @@ section {
         padding: 70px 5% 70px;
     }
 
-    .news-section {
+    .benefit-section {
         padding: 70px 5% 80px;
     }
 
@@ -1691,12 +1490,9 @@ section {
         font-size: 1.35rem;
     }
 
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
+    .benefit-card {
+        padding: 18px;
+        border-radius: 14px;
     }
 
     .info-card {
@@ -1716,5 +1512,9 @@ section {
 
     .about-img-float {
         width: 55%;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
     }
 }
