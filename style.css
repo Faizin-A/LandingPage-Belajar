@@ -1328,9 +1328,9 @@ section {
     width: 92px;
     height: 92px;
     border-radius: 50%;
-    background: radial-gradient(circle at 32% 28%, rgba(212, 175, 106, 0.28), rgba(212, 175, 106, 0.08) 70%);
+    background: #ffffff;
     border: 1px solid rgba(212, 175, 106, 0.35);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18), inset 0 0 0 6px rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1342,15 +1342,15 @@ section {
 
 .benefit-card:hover .benefit-icon {
     transform: translateY(-2px) scale(1.05);
-    background: radial-gradient(circle at 32% 28%, rgba(212, 175, 106, 0.4), rgba(212, 175, 106, 0.12) 70%);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22), inset 0 0 0 6px rgba(255, 255, 255, 0.05);
+    background: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24), 0 0 0 4px rgba(212, 175, 106, 0.25);
 }
 
 .benefit-icon img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+    filter: none;
 }
 
 .benefit-card h3 {
