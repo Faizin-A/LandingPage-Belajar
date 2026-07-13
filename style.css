@@ -1684,6 +1684,10 @@ section {
     backdrop-filter: blur(4px);
 }
 
+.cta-badge-break {
+    display: none;
+}
+
 .pulse-dot-aktif {
     width: 7px;
     height: 7px;
@@ -1824,5 +1828,14 @@ section {
         padding: 16px 20px;
         font-size: 1rem;
         border-radius: 12px;
+    }
+    
+    .cta-badge-break {
+        display: block;
+    }
+
+    .cta-baru-badge {
+        text-align: center;
+        line-height: 1.4;
     }
 }
