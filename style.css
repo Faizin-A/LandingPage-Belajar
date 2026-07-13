@@ -217,13 +217,22 @@ section {
     backdrop-filter: blur(4px);
 }
 
-.visual-left h1 {
+.hero-title {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-title-text {
+    display: block;
     font-size: 2.8rem;
     font-weight: 700;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin: 0;
-    padding: 0;
+}
+
+/* Logo disembunyikan di desktop, teks yang tampil */
+.hero-title-logo {
+    display: none;
 }
 
 .visual-subtext {
@@ -234,6 +243,29 @@ section {
     max-width: 700px;
     line-height: 1.5;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Teks konteks di atas bar form (Nama, Lokasi, Tipe Unit) */
+.form-context-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f3e2bc;
+    letter-spacing: 0.3px;
+    margin: 0 0 12px 8px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.form-context-text::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d4af6a;
+    box-shadow: 0 0 8px rgba(212, 175, 106, 0.8);
+    flex-shrink: 0;
 }
 
 /* Kapsul Filter Dropdown */
@@ -420,15 +452,32 @@ section {
         align-self: center;
     }
 
-    .visual-left h1 {
-        font-size: 2.2rem;
-        text-align: center;
+    .hero-title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-title-text {
+        display: none;
+    }
+
+    .hero-title-logo {
+        display: block;
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.35));
     }
 
     .visual-subtext {
         font-size: 0.95rem;
         text-align: center;
         margin-bottom: 25px;
+    }
+
+    .form-context-text {
+        margin-left: 0;
+        justify-content: center;
     }
 
     .search-filter-bar {
