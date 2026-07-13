@@ -63,39 +63,10 @@ section {
     text-decoration: none;
 }
 
-.logo {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #0d3b3e, #1a5c5f);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #d4af6a;
-    flex-shrink: 0;
-}
-
-.brand-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: #1a2e2f;
-}
-
-.sub-name {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 400;
-    margin-top: 2px;
-    letter-spacing: 0.5px;
+.brand-logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 /* Navigasi Menu Desktop */
@@ -617,19 +588,10 @@ section {
         height: 60px;
     }
 
-    .logo {
-        width: 32px;
-        height: 32px;
+    .brand-logo-img {
+        height: 34px;
     }
-
-    .name {
-        font-size: 1.1rem;
-    }
-
-    .sub-name {
-        font-size: 0.65rem;
-    }
-
+    
     .hamburger-menu span {
         width: 22px;
         height: 2.5px;
