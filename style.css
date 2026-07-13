@@ -230,6 +230,10 @@ section {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
+.subtext-break {
+    display: none;
+}
+
 /* Logo disembunyikan di desktop, teks yang tampil */
 .hero-title-logo {
     display: none;
@@ -459,6 +463,10 @@ section {
 
     .hero-title-text {
         display: none;
+    }
+
+    .subtext-break {
+        display: block;
     }
 
     .hero-title-logo {
@@ -1829,7 +1837,7 @@ section {
         font-size: 1rem;
         border-radius: 12px;
     }
-    
+
     .cta-badge-break {
         display: block;
     }
