@@ -242,6 +242,34 @@
         </div>
     </div>
 
+    <!-- Popup Pilih Kontak WhatsApp (Seno / Fati) -->
+    <div class="popup-overlay" id="contact-picker-overlay">
+        <div class="popup-box contact-picker-box">
+            <button class="popup-close" id="contact-picker-close" aria-label="Tutup popup">&times;</button>
+
+            <h3 class="contact-picker-title">Pilih Marketing Executive</h3>
+            <p class="contact-picker-subtitle">Silakan pilih salah satu untuk melanjutkan chat WhatsApp</p>
+
+            <div class="contact-picker-options">
+                <button type="button" class="contact-option" data-marketer="seno" data-number="6289673247693">
+                    <span class="contact-option-avatar">S</span>
+                    <span class="contact-option-info">
+                        <span class="contact-option-name">Seno</span>
+                        <span class="contact-option-number">+62 896 7324 7693</span>
+                    </span>
+                </button>
+
+                <button type="button" class="contact-option" data-marketer="fati" data-number="6285640839695">
+                    <span class="contact-option-avatar">F</span>
+                    <span class="contact-option-info">
+                        <span class="contact-option-name">Fati</span>
+                        <span class="contact-option-number">+62 856 4083 9695</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- // Tentang Proyek -->
     <section id="about" class="about-section">
         <div class="section-heading light-heading">
@@ -390,15 +418,14 @@
                     </div>
 
                     <!-- Tombol WhatsApp -->
-                    <a href="https://wa.me/6289673247693?text=Halo%20admin%20AMARTA%20TOWN%20HOUSE%2C%20saya%20tertarik%20dengan%20promo%20terbaru%201.8%20Miliar.%20Mohon%20infonya."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <button type="button"
+                    id="cta-wa-btn"
                     class="btn-wa-baru">
                         <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor">
                             <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.394.63 4.64 1.822 6.578L4 29l7.62-1.994A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.818c-1.99 0-3.94-.535-5.633-1.547l-.404-.24-4.522 1.184 1.207-4.408-.263-.452A9.77 9.77 0 0 1 5.182 15c0-5.98 4.867-10.818 10.822-10.818S26.826 9.02 26.826 15 21.96 24.818 16.004 24.818zm5.94-8.16c-.325-.163-1.924-.95-2.222-1.058-.298-.108-.515-.163-.732.163-.217.325-.84 1.058-1.03 1.276-.19.217-.38.244-.705.081-.325-.163-1.372-.505-2.613-1.612-.966-.862-1.618-1.927-1.808-2.252-.19-.325-.02-.5.143-.663.147-.146.325-.38.488-.57.163-.19.217-.325.325-.542.108-.217.054-.407-.027-.57-.081-.163-.732-1.766-1.003-2.418-.264-.635-.532-.55-.732-.56l-.624-.011c-.217 0-.57.081-.868.407-.298.325-1.137 1.112-1.137 2.713 0 1.6 1.164 3.147 1.327 3.364.163.217 2.29 3.497 5.55 4.905.775.334 1.38.534 1.852.684.778.247 1.487.212 2.047.129.624-.093 1.924-.786 2.196-1.545.271-.76.271-1.41.19-1.545-.081-.136-.298-.217-.623-.38z"/>
                         </svg>
                         UNIT TERBATAS! BOOKING SEKARANG
-                    </a>
+                    </button>
 
                     <p class="cta-baru-note">Tanpa komitmen — konsultasi gratis dengan tim kami</p>
                 </div>
@@ -702,9 +729,52 @@
 
         sections.forEach(section => observer.observe(section));
 
-        // === Form Search-Filter -> WhatsApp ===
+        // === Popup Pilih Kontak WhatsApp (Seno / Fati) ===
+        const contactPickerOverlay = document.getElementById('contact-picker-overlay');
+        const contactPickerClose = document.getElementById('contact-picker-close');
+        const contactOptions = document.querySelectorAll('.contact-option');
+
+        // Menyimpan fungsi pembuat pesan yang sedang aktif (diisi saat tombol WA diklik)
+        let pendingMessageBuilder = null;
+
+        function openContactPicker(messageBuilder) {
+            pendingMessageBuilder = messageBuilder;
+            contactPickerOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactPicker() {
+            contactPickerOverlay.classList.remove('show');
+            document.body.style.overflow = '';
+            pendingMessageBuilder = null;
+        }
+
+        contactPickerClose.addEventListener('click', closeContactPicker);
+        contactPickerOverlay.addEventListener('click', (e) => {
+            if (e.target === contactPickerOverlay) closeContactPicker();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && contactPickerOverlay.classList.contains('show')) closeContactPicker();
+        });
+
+        contactOptions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!pendingMessageBuilder) return;
+
+                const marketer = btn.dataset.marketer; // "seno" atau "fati"
+                const number = btn.dataset.number;
+                const namaSapaan = marketer === 'seno' ? 'Seno' : 'Fati';
+
+                const pesan = pendingMessageBuilder(namaSapaan);
+                const waURL = `https://wa.me/${number}?text=${encodeURIComponent(pesan)}`;
+
+                window.open(waURL, '_blank');
+                closeContactPicker();
+            });
+        });
+
+        // === Form Search-Filter -> Buka Popup Pilih Kontak ===
         const waForm = document.getElementById('wa-form');
-        const WA_NUMBER = '6289673247693';
 
         waForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -718,10 +788,18 @@
                 return;
             }
 
-            const pesan = `Halo kak! Saya ${nama} tertarik dengan unit AMARTA TOWN HOUSE lokasi ${lokasi} dengan tipe ${tipe}. Boleh minta informasi unit lebih detail? Terimakasih!`;
-            const waURL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(pesan)}`;
+            openContactPicker((namaSapaan) => {
+                return `Halo kak ${namaSapaan}! Saya ${nama} tertarik dengan unit AMARTA TOWN HOUSE lokasi ${lokasi} dengan tipe ${tipe}. Boleh minta informasi unit lebih detail? Terimakasih!`;
+            });
+        });
 
-            window.open(waURL, '_blank');
+        // === CTA Promosi -> Buka Popup Pilih Kontak ===
+        const ctaWaBtn = document.getElementById('cta-wa-btn');
+
+        ctaWaBtn.addEventListener('click', () => {
+            openContactPicker((namaSapaan) => {
+                return `Halo kak ${namaSapaan}, saya tertarik dengan promo terbaru AMARTA TOWN HOUSE Rp 1.8 Miliar. Mohon infonya.`;
+            });
         });
     </script>
 
